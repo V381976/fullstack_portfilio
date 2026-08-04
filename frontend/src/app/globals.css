@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(20, 184, 166, 0.28);
+  color: #0f172a;
+}
+
+/* Soft section spacing helper */
+section[id] {
+  scroll-margin-top: 5rem;
+}
