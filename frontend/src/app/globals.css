@@ -8,6 +8,13 @@ html {
 
 body {
   text-rendering: optimizeLegibility;
+  font-family:
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif;
 }
 
 ::selection {
