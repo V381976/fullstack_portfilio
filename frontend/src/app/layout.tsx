@@ -1,27 +1,41 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import LoadingScreen from '@/components/animations/LoadingScreen'
 import CustomCursor from '@/components/animations/CustomCursor'
 import SmoothScroll from '@/components/animations/SmoothScroll'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = {
   title: 'Devendra Saini | Full Stack Developer',
-  description: 'World-class full-stack developer portfolio featuring modern web development with React, Next.js, Three.js, and AI integration.',
-  keywords: ['Full Stack Developer', 'React', 'Next.js', 'Three.js', 'TypeScript', 'Web Development'],
+  description:
+    'Full-stack developer portfolio — React, Next.js, Node.js, Prisma, and modern web apps.',
+  keywords: [
+    'Full Stack Developer',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Web Development',
+    'Devendra Saini',
+  ],
   authors: [{ name: 'Devendra Saini' }],
   openGraph: {
     title: 'Devendra Saini | Full Stack Developer',
-    description: 'World-class full-stack developer portfolio featuring modern web development with React, Next.js, Three.js, and AI integration.',
+    description:
+      'Full-stack developer portfolio — React, Next.js, Node.js, Prisma, and modern web apps.',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Devendra Saini | Full Stack Developer',
-    description: 'World-class full-stack developer portfolio featuring modern web development with React, Next.js, Three.js, and AI integration.',
+    description:
+      'Full-stack developer portfolio — React, Next.js, Node.js, Prisma, and modern web apps.',
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#1e1e1e',
 }
 
 export default function RootLayout({
@@ -31,7 +45,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
-      <body className={inter.className}>
+      <body className="font-sans antialiased overflow-x-hidden">
         <LoadingScreen />
         <CustomCursor />
         <SmoothScroll />

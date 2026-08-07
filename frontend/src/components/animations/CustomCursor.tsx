@@ -6,24 +6,33 @@ import { useCustomCursor } from '@/hooks/use-custom-cursor'
 
 export default function CustomCursor() {
   const { position, isHovering } = useCustomCursor()
-  const [isMounted, setIsMounted] = useState(false)
+  const [enabled, setEnabled] = useState(false)
 
   useEffect(() => {
-    setIsMounted(true)
-    // Don't hide default cursor to avoid interaction issues
-    
+    const mediaFine = window.matchMedia('(pointer: fine)')
+    const mediaMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+
+    const update = () => {
+      setEnabled(mediaFine.matches && !mediaMotion.matches)
+    }
+
+    update()
+    mediaFine.addEventListener('change', update)
+    mediaMotion.addEventListener('change', update)
+
     return () => {
+      mediaFine.removeEventListener('change', update)
+      mediaMotion.removeEventListener('change', update)
       document.body.style.cursor = 'auto'
     }
   }, [])
 
-  if (!isMounted) return null
+  if (!enabled) return null
 
   return (
     <>
-      {/* Main cursor */}
       <motion.div
-        className="custom-cursor fixed w-4 h-4 bg-primary rounded-full pointer-events-none z-[9999]"
+        className="custom-cursor fixed w-4 h-4 bg-primary rounded-full pointer-events-none z-[9999] hidden md:block"
         animate={{
           x: position.x - 8,
           y: position.y - 8,
@@ -35,10 +44,9 @@ export default function CustomCursor() {
           damping: 28,
         }}
       />
-      
-      {/* Outer ring */}
+
       <motion.div
-        className="custom-cursor fixed w-12 h-12 border-2 border-primary rounded-full pointer-events-none z-[9998]"
+        className="custom-cursor fixed w-12 h-12 border-2 border-primary rounded-full pointer-events-none z-[9998] hidden md:block"
         animate={{
           x: position.x - 24,
           y: position.y - 24,
@@ -51,10 +59,9 @@ export default function CustomCursor() {
           damping: 20,
         }}
       />
-      
-      {/* Glow effect */}
+
       <motion.div
-        className="custom-cursor fixed w-24 h-24 bg-primary/20 rounded-full blur-xl pointer-events-none z-[9997]"
+        className="custom-cursor fixed w-24 h-24 bg-primary/20 rounded-full blur-xl pointer-events-none z-[9997] hidden md:block"
         animate={{
           x: position.x - 48,
           y: position.y - 48,

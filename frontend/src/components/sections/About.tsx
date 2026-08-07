@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { Calendar, MapPin, Code, Heart, Target, Award } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
+import { TechChipList } from '@/components/ui/TechChip'
+import CardAccent3D from '@/components/three/CardAccent3D'
 
 const experiences = [
   {
@@ -37,11 +39,8 @@ const certificates = [
 
 export default function About() {
   return (
-    <section id="about" className="relative py-20">
-      <div className="absolute inset-0 gradient-mesh opacity-50" />
-      <div className="absolute inset-0 noise" />
-
-      <div className="relative z-10 container mx-auto px-6">
+    <section id="about" className="relative py-12 sm:py-16 md:py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -161,8 +160,9 @@ export default function About() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
               >
-                <Card className="glass hover:border-primary/50 transition-colors">
-                  <CardContent className="p-6">
+                <Card className="glass hover:border-primary/50 transition-colors relative overflow-hidden">
+                  <CardAccent3D index={index} className="absolute right-0 top-0 h-24 w-24 opacity-70 pointer-events-none" />
+                  <CardContent className="p-6 relative z-10">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <div>
                         <h4 className="text-xl font-bold">{exp.role}</h4>
@@ -171,13 +171,7 @@ export default function About() {
                       <span className="text-sm text-muted-foreground mt-2 md:mt-0">{exp.year}</span>
                     </div>
                     <p className="text-muted-foreground mb-4">{exp.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
+                    <TechChipList items={exp.technologies} />
                   </CardContent>
                 </Card>
               </motion.div>

@@ -12,7 +12,7 @@ function required(name) {
 
 export const env = {
   smtp: {
-    host: process.env.SMTP_HOST || "smtp.gmail.com",
+    host: process.env.SMTP_HOST || "smtp-relay.brevo.com",
     port: Number(process.env.SMTP_PORT || 587),
     secure: process.env.SMTP_SECURE === "true",
     user: required("SMTP_USER"),

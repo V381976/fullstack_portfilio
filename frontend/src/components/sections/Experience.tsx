@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Calendar, MapPin, ExternalLink } from 'lucide-react'
+import { TechChipList } from '@/components/ui/TechChip'
+import CardAccent3D from '@/components/three/CardAccent3D'
 
 const experiences = [
   {
@@ -42,22 +44,19 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative py-20">
-      <div className="absolute inset-0 gradient-mesh opacity-50" />
-      <div className="absolute inset-0 noise" />
-
-      <div className="relative z-10 container mx-auto px-6">
-        {/* Section Header */}
+    <section id="experience" className="relative py-12 sm:py-16 md:py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             <span className="gradient-text">Work Experience</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             My professional journey in the tech industry
           </p>
         </motion.div>
@@ -71,8 +70,9 @@ export default function Experience() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 + index * 0.1 }}
             >
-              <Card className="glass hover:border-primary/50 transition-all duration-300">
-                <CardContent className="p-6 md:p-8">
+              <Card className="glass hover:border-primary/50 transition-all duration-300 relative overflow-hidden">
+                <CardAccent3D index={index} className="absolute right-0 top-0 h-24 w-24 opacity-80 pointer-events-none" />
+                <CardContent className="p-6 md:p-8 relative z-10">
                   {/* Header */}
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                     <div className="flex-1">
@@ -112,14 +112,7 @@ export default function Experience() {
                     </ul>
                   </div>
 
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-2">
-                    {exp.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
+                  <TechChipList items={exp.technologies} />
                 </CardContent>
               </Card>
             </motion.div>

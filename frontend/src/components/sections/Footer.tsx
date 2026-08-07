@@ -28,11 +28,8 @@ export default function Footer() {
   }
 
   return (
-    <footer className="relative py-12 border-t border-white/10">
-      <div className="absolute inset-0 gradient-mesh opacity-30" />
-      <div className="absolute inset-0 noise" />
-
-      <div className="relative z-10 container mx-auto px-6">
+    <footer className="relative py-10 sm:py-12 border-t border-border/60">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <motion.div

@@ -17,7 +17,6 @@ const services = [
       'Database Design & Optimization',
       'Real-time Applications',
     ],
-    priceFrom: '$2,000',
   },
   {
     icon: Layout,
@@ -29,7 +28,6 @@ const services = [
       'Performance Optimization',
       'Accessibility (WCAG AA)',
     ],
-    priceFrom: '$1,500',
   },
   {
     icon: Database,
@@ -41,7 +39,6 @@ const services = [
       'Authentication & Security',
       'Cloud Deployment',
     ],
-    priceFrom: '$1,500',
   },
   {
     icon: Cloud,
@@ -53,7 +50,6 @@ const services = [
       'Docker & Kubernetes',
       'Infrastructure Monitoring',
     ],
-    priceFrom: '$1,000',
   },
   {
     icon: Smartphone,
@@ -65,7 +61,6 @@ const services = [
       'Push Notifications',
       'Offline Support',
     ],
-    priceFrom: '$2,500',
   },
   {
     icon: Zap,
@@ -77,35 +72,30 @@ const services = [
       'Chatbot Development',
       'Predictive Analytics',
     ],
-    priceFrom: '$3,000',
   },
 ]
 
 export default function Services() {
   const magneticRef = useMagnetic<HTMLButtonElement>(0.3)
   return (
-    <section id="services" className="relative py-20">
-      <div className="absolute inset-0 gradient-mesh opacity-50" />
-      <div className="absolute inset-0 noise" />
-
-      <div className="relative z-10 container mx-auto px-6">
+    <section id="services" className="relative py-12 sm:py-16 md:py-20">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">
             <span className="gradient-text">Services</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             Professional development services to bring your ideas to life
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
@@ -134,13 +124,6 @@ export default function Services() {
                         </li>
                       ))}
                     </ul>
-
-                    <div className="pt-4 border-t border-white/10">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-muted-foreground">Starting from</span>
-                        <span className="text-lg font-bold gradient-text">{service.priceFrom}</span>
-                      </div>
-                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -161,14 +144,15 @@ export default function Services() {
               <p className="text-muted-foreground mb-6">
                 Let's discuss how I can help bring your vision to life with custom development solutions.
               </p>
-              <Button 
-                variant="gradient" 
-                size="lg" 
+              <Button
+                variant="gradient"
+                size="lg"
                 className="magnetic-button"
                 ref={magneticRef.ref}
                 style={{ transform: magneticRef.transform }}
+                asChild
               >
-                Get a Free Quote
+                <a href="#contact">Get a Free Quote</a>
               </Button>
             </CardContent>
           </Card>

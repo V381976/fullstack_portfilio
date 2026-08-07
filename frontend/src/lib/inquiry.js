@@ -1,5 +1,5 @@
-import prisma from "./prisma";
-import { sendInquiryToOwner, sendThankYouToSender } from "./mail";
+import prisma from "./prisma.js";
+import { sendInquiryToOwner, sendThankYouToSender } from "./mail.js";
 
 export async function createInquiryRecord(data) {
   return prisma.inquiry.create({
