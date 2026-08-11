@@ -46,7 +46,7 @@ export default function CardAccentScene({ color = '#569cd6' }: { color?: string 
   return (
     <Canvas
       camera={{ position: [0, 0, 2.4], fov: 45 }}
-      dpr={[1, 1.25]}
+      dpr={[1, 1]}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       onCreated={({ gl, scene }) => {
         gl.setClearColor(0x000000, 0)

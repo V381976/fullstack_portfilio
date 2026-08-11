@@ -31,7 +31,7 @@ export default function TechIcon3D({ skillName, color, className }: Props) {
   if (!entry) {
     return (
       <div
-        className={className ?? 'w-14 h-14 rounded-xl flex items-center justify-center text-xl font-bold'}
+        className={className ?? 'w-8 h-8 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center text-xs sm:text-sm font-bold'}
         style={{ backgroundColor: `${color}22`, color }}
       >
         {skillName[0]}
@@ -44,7 +44,7 @@ export default function TechIcon3D({ skillName, color, className }: Props) {
 
   return (
     <div
-      className={className ?? 'w-14 h-14 rounded-xl'}
+      className={className ?? 'w-8 h-8 sm:w-10 sm:h-10 rounded-lg'}
       style={{
         backgroundColor: `${color}22`,
         perspective: '600px',
@@ -58,7 +58,10 @@ export default function TechIcon3D({ skillName, color, className }: Props) {
         transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
         whileHover={{ scale: 1.08, rotateX: 12 }}
       >
-        <Icon size={30} color={iconColor} style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.45))' }} />
+        <div className="flex items-center justify-center">
+          <Icon size={22} className="hidden sm:block" color={iconColor} style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.45))' }} />
+          <Icon size={16} className="block sm:hidden" color={iconColor} style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.45))' }} />
+        </div>
       </motion.div>
     </div>
   )

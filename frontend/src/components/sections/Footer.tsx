@@ -6,10 +6,10 @@ import { Button } from '@/components/ui/button'
 import { useMagnetic } from '@/hooks/use-magnetic'
 
 const socialLinks = [
-  { icon: Github, href: 'https://github.com', label: 'GitHub' },
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+  { icon: Github, href: 'https://github.com/V381976/', label: 'GitHub' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/devendra-saini-502042253?utm_source=share_via&utm_content=profile&utm_medium=member_android', label: 'LinkedIn' },
   { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Mail, href: 'mailto:devendra@example.com', label: 'Email' },
+  { icon: Mail, href: '30', label: '30dsaini@gmail.com' },
 ]
 
 const quickLinks = [

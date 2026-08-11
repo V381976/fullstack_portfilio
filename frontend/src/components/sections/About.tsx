@@ -7,22 +7,6 @@ import { Badge } from '@/components/ui/badge'
 import { TechChipList } from '@/components/ui/TechChip'
 import CardAccent3D from '@/components/three/CardAccent3D'
 
-const experiences = [
-  {
-    year: 'Dec2025 - March 2026',
-    role: ' Full Stack Developer Intern',
-    company: 'Kuchoriya TechSoft Pvt Ltd.',
-    description: 'Leading development of enterprise applications using Next.js, React, and Node.js.',
-    technologies: ['Next.js', 'React', 'TypeScript','Mongodb' , 'Redux','PostgreSQL', 'AWS' ,'Vercel' ,'Render'],
-  },
-  {
-    year: 'April 2026 - Present',
-    role: 'Full Stack Developer',
-    company: 'Rewathi Innovations Pvt. Ltd.',
-    description: 'Built scalable web applications and RESTful APIs for various clients.',
-    technologies: ['React', 'Node.js','next js','TypeScript','Mongodb' , 'Redux','PostgreSQL','MongoDB', 'Express', 'Docker'],
-  }
-]
 
 const education = [
   {
@@ -144,40 +128,7 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Experience Timeline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mb-16"
-        >
-          <h3 className="text-2xl font-bold mb-8 text-center">Experience</h3>
-          <div className="space-y-6">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-              >
-                <Card className="glass hover:border-primary/50 transition-colors relative overflow-hidden">
-                  <CardAccent3D index={index} className="absolute right-0 top-0 h-24 w-24 opacity-70 pointer-events-none" />
-                  <CardContent className="p-6 relative z-10">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                      <div>
-                        <h4 className="text-xl font-bold">{exp.role}</h4>
-                        <p className="text-primary">{exp.company}</p>
-                      </div>
-                      <span className="text-sm text-muted-foreground mt-2 md:mt-0">{exp.year}</span>
-                    </div>
-                    <p className="text-muted-foreground mb-4">{exp.description}</p>
-                    <TechChipList items={exp.technologies} />
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+
 
         {/* Education */}
         <motion.div

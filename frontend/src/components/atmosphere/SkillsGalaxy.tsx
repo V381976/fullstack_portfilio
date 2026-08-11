@@ -23,12 +23,16 @@ export default function SkillsGalaxy({ skills }: { skills: SkillNode[] }) {
       >
         {items.map((skill, index) => {
           const angle = (360 / items.length) * index
+          const radius = 110 // Increased radius for better spacing
+          const x = Math.cos((angle * Math.PI) / 180) * radius
+          const y = Math.sin((angle * Math.PI) / 180) * radius
+          
           return (
             <motion.div
               key={skill.name}
               className="absolute left-1/2 top-1/2"
               style={{
-                transform: `rotate(${angle}deg) translateY(-95px) rotate(-${angle}deg)`,
+                transform: `translate(-50%, -50%) translate(${x}px, ${y}px)`,
               }}
               whileHover={{ scale: 1.12 }}
             >
@@ -43,7 +47,7 @@ export default function SkillsGalaxy({ skills }: { skills: SkillNode[] }) {
         })}
       </motion.div>
 
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
         <div className="w-16 h-16 rounded-full border border-[#007acc]/40 bg-[#1e1e1e]/80 flex items-center justify-center font-mono text-xs text-[#4ec9b0]">
           stack
         </div>

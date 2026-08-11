@@ -35,14 +35,14 @@ type TechMeta = {
 const TECH_META: Record<string, TechMeta> = {
   React: { Icon: FaReact, color: '#61DAFB' },
   'React.js': { Icon: FaReact, color: '#61DAFB' },
-  'Next.js': { Icon: SiNextdotjs, color: '#d4d4d4' },
+  'Next.js': { Icon: SiNextdotjs, color: '#ffffff' },
   'next js': { Icon: SiNextdotjs, color: '#d4d4d4' },
   'Node.js': { Icon: FaNodeJs, color: '#68A063' },
   Node: { Icon: SiNodedotjs, color: '#68A063' },
   MongoDB: { Icon: SiMongodb, color: '#47A248' },
   Mongodb: { Icon: SiMongodb, color: '#47A248' },
-  Express: { Icon: SiExpress, color: '#d4d4d4' },
-  'Express.js': { Icon: SiExpress, color: '#d4d4d4' },
+  Express: { Icon: SiExpress, color: '#ffffff' },
+  'Express.js': { Icon: SiExpress, color: '#ffffff' },
   Redis: { Icon: SiRedis, color: '#DC382D' },
   'Socket.io': { Icon: SiSocketdotio, color: '#d4d4d4' },
   TypeScript: { Icon: SiTypescript, color: '#3178C6' },
@@ -62,7 +62,7 @@ const TECH_META: Record<string, TechMeta> = {
   Python: { Icon: FaPython, color: '#3776AB' },
   Redux: { Icon: SiRedux, color: '#764ABC' },
   'Tailwind CSS': { Icon: SiTailwindcss, color: '#06B6D4' },
-  Vercel: { Icon: SiVercel, color: '#d4d4d4' },
+  Vercel: { Icon: SiVercel, color: '#ffffff' },
   Render: { Icon: Cloud, color: '#46E3B7' },
 }
 
@@ -108,7 +108,7 @@ export default function TechChip({ tech, index = 0 }: Props) {
 
 export function TechChipList({ items }: { items: string[] }) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-1.5 sm:gap-2">
       {items.map((tech, i) => (
         <TechChip key={`${tech}-${i}`} tech={tech} index={i} />
       ))}

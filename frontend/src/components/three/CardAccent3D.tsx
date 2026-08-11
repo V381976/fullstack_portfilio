@@ -37,7 +37,7 @@ export default function CardAccent3D({ index = 0, className }: Props) {
   return (
     <div
       ref={hostRef}
-      className={`hidden md:block ${className ?? 'absolute right-2 top-2 h-20 w-20 pointer-events-none'}`}
+      className={`${className ?? 'absolute right-2 top-2 h-16 w-16 sm:h-20 sm:w-20 pointer-events-none'}`}
       aria-hidden
     >
       {desktopOk && inView ? <CardAccentScene color={color} /> : null}

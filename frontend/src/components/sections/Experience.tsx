@@ -72,24 +72,24 @@ export default function Experience() {
             >
               <Card className="glass hover:border-primary/50 transition-all duration-300 relative overflow-hidden">
                 <CardAccent3D index={index} className="absolute right-0 top-0 h-24 w-24 opacity-80 pointer-events-none" />
-                <CardContent className="p-6 md:p-8 relative z-10">
+                <CardContent className="p-4 sm:p-5 md:p-6 lg:p-8 relative z-10">
                   {/* Header */}
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3 sm:mb-4">
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-2">
-                        <h3 className="text-xl font-bold">{exp.position}</h3>
+                        <h3 className="text-lg sm:text-xl font-bold">{exp.position}</h3>
                         {exp.current && (
                           <Badge variant="glow">Current</Badge>
                         )}
                       </div>
-                      <p className="text-primary font-medium mb-1">{exp.company}</p>
-                      <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                      <p className="text-primary font-medium mb-1 text-sm sm:text-base">{exp.company}</p>
+                      <div className="flex flex-wrap gap-3 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
                         <span className="flex items-center gap-1">
-                          <Calendar size={14} />
+                          <Calendar size={12} className="xl:size-7" />
                           {exp.startDate} - {exp.endDate}
                         </span>
                         <span className="flex items-center gap-1">
-                          <MapPin size={14} />
+                          <MapPin size={12} className="xl:size-7" />
                           {exp.location}
                         </span>
                       </div>
@@ -97,14 +97,14 @@ export default function Experience() {
                   </div>
 
                   {/* Description */}
-                  <p className="text-muted-foreground mb-4">{exp.description}</p>
+                  <p className="text-muted-foreground mb-3 sm:mb-4 text-sm sm:text-base">{exp.description}</p>
 
                   {/* Achievements */}
-                  <div className="mb-4">
-                    <h4 className="font-medium mb-2">Key Achievements:</h4>
+                  <div className="mb-3 sm:mb-4">
+                    <h4 className="font-medium mb-2 text-sm sm:text-base">Key Achievements:</h4>
                     <ul className="space-y-1">
                       {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <li key={i} className="flex items-start gap-2 text-xs sm:text-sm text-muted-foreground">
                           <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
                           {achievement}
                         </li>

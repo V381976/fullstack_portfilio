@@ -118,7 +118,7 @@ footer {
 
 /* Editor panel style (VS Code sidebar / panel) */
 .glass {
-  background: rgba(37, 37, 38, 0.92);
+  background: rgba(37, 37, 38, 0.05);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid #3c3c3c;
