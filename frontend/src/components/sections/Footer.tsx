@@ -92,9 +92,9 @@ export default function Footer() {
           >
             <h4 className="font-bold mb-4">Contact</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li>Bangalore, India</li>
-              <li>devendra@example.com</li>
-              <li>+91 98765 43210</li>
+              <li>Jaipur, Rajasthan, India</li>
+              <li>30dsaini@gmail.com</li>
+              <li>+91 9462925542</li>
             </ul>
           </motion.div>
         </div>
